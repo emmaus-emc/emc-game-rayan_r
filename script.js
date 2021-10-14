@@ -34,17 +34,17 @@ var beweegAlles = function () {
 
   // speler
 if(keyIsDown(37)) {
-  spelerX=spelerX-3;
+  spelerX=spelerX-10;
 }
 if(keyIsDown(39)) {
-  spelerX=spelerX+3;
+  spelerX=spelerX+10;
 }
 
 if(keyIsDown(38)) {
-  spelerY=spelerY-3;
+  spelerY=spelerY-10;
 }
 if(keyIsDown(40)) {
-  spelerY=spelerY+3;
+  spelerY=spelerY+10;
 }
 
 
@@ -75,7 +75,7 @@ var tekenAlles = function () {
   // achtergrond
   fill('white');
 
-rect(0,0,1200,720)
+rect(0,0,1280,720)
   // vijand
 
   // kogel
