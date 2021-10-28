@@ -30,27 +30,40 @@ var spelerY = 50; // y-positie van speler
 var beweegAlles = function () {
   // vijand
 
+ if(vijandX>25){
+ vijandX=0;
+}
+
+if(vijandY>690) {
+  vijandY=0;
+}
   // kogel
 
   // speler
+
+if(spelerX>=25) {
 if(keyIsDown(37)) {
   spelerX=spelerX-10;
+  }
 }
+
+if(spelerX<=1250) {
 if(keyIsDown(39)) {
   spelerX=spelerX+10;
+  }
 }
 
+if(spelerY>=30) {
 if(keyIsDown(38)) {
   spelerY=spelerY-10;
+  }
 }
+
+if(spelerY<=690) {
 if(keyIsDown(40)) {
   spelerY=spelerY+10;
+  }
 }
-
-
-
-
-
 
 
 
@@ -77,6 +90,10 @@ var tekenAlles = function () {
 
 rect(0,0,1280,720)
   // vijand
+  fill("white");
+  rect(vijandX - 25, vijandY - 25, 50, 50);
+  fill("black");
+  ellipse(vijandX, vijandY, 10, 10);
 
   // kogel
 
