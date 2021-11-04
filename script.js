@@ -1,3 +1,4 @@
+
 /* Game opdracht
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
@@ -15,9 +16,9 @@ const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
 var spelerX = 150; // x-positie van speler
-var spelerY = 50; // y-positie van speler
+var spelerY = 650; // y-positie van speler
 
-  var vijandX = 50;
+  var vijandX = 250;
   var vijandY = 50;
 
 /* ********************************************* */
@@ -30,9 +31,7 @@ var spelerY = 50; // y-positie van speler
 var beweegAlles = function () {
   // vijand
 
- if(vijandX>25){
- vijandX=0;
-}
+ vijandY = vijandY +5;
 
 if(vijandY>690) {
   vijandY=0;
@@ -42,25 +41,25 @@ if(vijandY>690) {
   // speler
 
 if(spelerX>=25) {
-if(keyIsDown(37)) {
+if(keyIsDown(37)) { // key_left
   spelerX=spelerX-10;
   }
 }
 
 if(spelerX<=1250) {
-if(keyIsDown(39)) {
+if(keyIsDown(39)) { // keyr_right
   spelerX=spelerX+10;
   }
 }
 
 if(spelerY>=30) {
-if(keyIsDown(38)) {
+if(keyIsDown(38)) { // key_up
   spelerY=spelerY-10;
   }
 }
 
 if(spelerY<=690) {
-if(keyIsDown(40)) {
+if(keyIsDown(40)) { // key_down
   spelerY=spelerY+10;
   }
 }
@@ -76,7 +75,12 @@ if(keyIsDown(40)) {
  */
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
-
+  if (vijandX - spelerX < 50 && 
+      vijandX - spelerX > -50 &&
+      vijandY - spelerY <50 &&
+      vijandY - spelerY > -50) {
+    console.log("botsing");
+  }
   // botsing kogel tegen vijand
 
 };
