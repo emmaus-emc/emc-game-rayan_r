@@ -31,7 +31,10 @@ var spelerY = 650; // y-positie van speler
 var beweegAlles = function () {
   // vijand
 
- vijandY = vijandY +5;
+if (health != 0) {
+vijandY = vijandY +5;
+}
+ 
 
 if(vijandY>690) {
   vijandY=0;
@@ -39,29 +42,31 @@ if(vijandY>690) {
   // kogel
 
   // speler
-
+var movingSpeed = 30;
+if (health != 0) {
 if(spelerX>=25) {
 if(keyIsDown(37)) { // key_left
-  spelerX=spelerX-10;
+  spelerX=spelerX-movingSpeed;
   }
 }
 
 if(spelerX<=1250) {
 if(keyIsDown(39)) { // keyr_right
-  spelerX=spelerX+10;
+  spelerX=spelerX+movingSpeed;
   }
 }
 
 if(spelerY>=30) {
 if(keyIsDown(38)) { // key_up
-  spelerY=spelerY-10;
+  spelerY=spelerY-movingSpeed;
   }
 }
 
 if(spelerY<=690) {
 if(keyIsDown(40)) { // key_down
-  spelerY=spelerY+10;
+  spelerY=spelerY+movingSpeed;
   }
+}
 }
 
 
@@ -73,17 +78,33 @@ if(keyIsDown(40)) { // key_down
  * Verwijdert neergeschoten vijanden
  * Updatet globale variabelen punten en health
  */
+  var health = 5;
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
   if (vijandX - spelerX < 50 && 
       vijandX - spelerX > -50 &&
       vijandY - spelerY <50 &&
       vijandY - spelerY > -50) {
-    console.log("botsing");
+        vijandY = vijandY - 700;
+        
+    
+        
+        if (health != 1) {
+console.log("hit");
+        }
+    health = health - 1;
+document.getElementById("insert").innerHTML = "You have " + health + " hp";
+  if (health <= 0) {
+  console.log("DOOD");
+  console.log("GAME OVER")
+  document.getElementById("insert").innerHTML = "GAMEOVER";
+  var yCoord = 601;
+}
   }
   // botsing kogel tegen vijand
 
 };
+
 
 /**
  * Tekent spelscherm
@@ -106,6 +127,7 @@ rect(0,0,1280,720)
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
+
 
   // punten en health
 

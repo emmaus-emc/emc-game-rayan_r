@@ -17,3 +17,9 @@ html, body {
    */ 
   margin: 0px;
 }
+
+#insert {
+  float: left;
+  background-color: white;
+  font-size: 20px;
+}
